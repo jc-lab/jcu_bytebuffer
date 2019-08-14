@@ -117,6 +117,10 @@ namespace jcu {
 			return pos_;
 		}
 
+		size_t remaining() const {
+			return limit_ - pos_;
+		}
+
 	}; // class ByteBuffer
 
 } // namespace asymsecurefile
