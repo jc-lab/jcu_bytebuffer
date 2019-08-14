@@ -121,6 +121,20 @@ namespace jcu {
 			return limit_ - pos_;
 		}
 
+		const unsigned char* readPtr() const {
+			return &buffer_[pos_];
+		}
+
+		unsigned char* writePtr() {
+			if (!mode_)
+				return NULL;
+			return &buffer_[pos_];
+		}
+
+		void increasePosition(size_t inc) {
+			pos_ += inc;
+		}
+
 	}; // class ByteBuffer
 
 } // namespace asymsecurefile
