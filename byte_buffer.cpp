@@ -137,8 +137,10 @@ namespace jcu {
 			return false;
 		if (endian_ == BIG_ENDIAN)
 		{
+			int shift = (sizeof(T) - 1) * 8;
 			for (i = 0; i < sizeof(T); i++) {
-				buffer_[pos_++] = (unsigned char)(value >> (i * 8));
+				buffer_[pos_++] = (unsigned char)(value >> shift);
+				shift -= 8;
 			}
 		} else {
 			for (i = 0; i < sizeof(T); i++) {
